@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./Docker/Dockerfile
+    container_name: ecommerce-api
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - mongo
+    environment:
+      PORT: 5000
+      DATABASE_URL: mongodb://mongo:27017/ecommerce?replicaSet=rs0
+      JWT_SECRET: supersecretkey
+    command: npm run dev
+
+  mongo:
+    image: mongo:8
+    container_name: ecommerce-mongo
+    restart: unless-stopped
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all"]
+    ports:
+      - "27018:27018"
+    volumes:
+      - mongo_data:/data/db
+    # 🧠 Crucial for Prisma: This starts MongoDB automatically as a replica set!
+
+volumes:
+  mongo_data:

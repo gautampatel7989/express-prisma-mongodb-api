@@ -1,10 +1,10 @@
 # Ecommerce Backend API
 
-Production-ready Ecommerce Backend API built using Node.js, Express.js, Prisma ORM, and MongoDB.
+Production-ready Ecommerce Backend API built using Node.js, Express.js, Prisma ORM, MongoDB, JWT Authentication, RBAC, and Docker.
 
 ---
 
-## Tech Stack
+# Tech Stack
 
 - Node.js
 - Express.js
@@ -13,7 +13,8 @@ Production-ready Ecommerce Backend API built using Node.js, Express.js, Prisma O
 - JWT Authentication
 - RBAC Authorization
 - Zod Validation
-- REST APIs
+- Docker
+- Docker Compose
 
 ---
 
@@ -77,6 +78,15 @@ src/
 ├── utils/
 ├── validations/
 │
+├── prisma/
+│
+├── Docker/
+│   └── Dockerfile
+│
+├── docker-compose.yml
+├── .dockerignore
+├── .env
+│
 └── server.js
 ```
 
@@ -100,15 +110,120 @@ MongoDB
 
 ---
 
-# Installation
+# Environment Variables
 
-## Clone Repository
+Create `.env` file in root directory.
 
-```bash
-git clone https://github.com/gautampatel7989/express-prisma-mongodb-api.git
+```env
+PORT=5000
+
+DATABASE_URL="mongodb://mongo:27017/ecommerce?replicaSet=rs0"
+
+JWT_SECRET="your_secret_key"
 ```
 
 ---
+
+# Docker Setup
+
+## Prerequisites
+
+- Docker
+- Docker Compose
+
+---
+
+# Run Project with Docker
+
+## Build & Start Containers
+
+```bash
+docker compose up --build
+```
+
+---
+
+# Run in Background
+
+```bash
+docker compose up -d
+```
+
+---
+
+# Stop Containers
+
+```bash
+docker compose down
+```
+
+---
+
+# Remove Containers + Volumes
+
+```bash
+docker compose down -v
+```
+
+---
+
+# MongoDB Replica Set Setup
+
+Prisma transactions require MongoDB Replica Set.
+
+Run the following command after containers start:
+
+```bash
+docker exec -it ecommerce-mongo mongosh
+```
+
+Then initialize replica set:
+
+```js
+rs.initiate();
+```
+
+Verify replica set status:
+
+```js
+rs.status();
+```
+
+You should see:
+
+```text
+PRIMARY
+```
+
+---
+
+# Prisma Commands
+
+## Generate Prisma Client
+
+```bash
+docker compose exec api npx prisma generate
+```
+
+---
+
+## Push Database Schema
+
+```bash
+docker compose exec api npx prisma db push
+```
+
+---
+
+## Open Prisma Studio
+
+```bash
+docker compose exec api npx prisma studio
+```
+
+---
+
+# Run Without Docker
 
 ## Install Dependencies
 
@@ -118,25 +233,15 @@ npm install
 
 ---
 
-# Environment Variables
-
-Create `.env` file in root directory.
-
-```env
-PORT=5000
-
-DATABASE_URL="mongodb://localhost:27017/ecommerce"
-
-JWT_SECRET="your_secret_key"
-```
-
----
-
-# Prisma Setup
+# Generate Prisma Client
 
 ```bash
 npx prisma generate
 ```
+
+---
+
+# Push Database Schema
 
 ```bash
 npx prisma db push
@@ -144,7 +249,7 @@ npx prisma db push
 
 ---
 
-# Run Development Server
+# Start Development Server
 
 ```bash
 npm run dev
@@ -154,7 +259,7 @@ npm run dev
 
 # API Base URL
 
-```txt
+```text
 http://localhost:5000/api
 ```
 
@@ -209,7 +314,7 @@ Protected APIs require Bearer Token.
 
 Example:
 
-```txt
+```text
 Authorization: Bearer YOUR_TOKEN
 ```
 
@@ -223,7 +328,8 @@ Authorization: Bearer YOUR_TOKEN
 - Global Error Handling
 - Request Validation
 - Rate Limiting
-- Secure Middleware
+- Dockerized Environment
+- MongoDB Replica Set Support
 
 ---
 
@@ -231,11 +337,11 @@ Authorization: Bearer YOUR_TOKEN
 
 - Refresh Tokens
 - Redis Caching
-- Docker Support
 - Swagger Documentation
 - AWS S3 Uploads
 - Unit Testing
 - CI/CD Pipeline
+- Kubernetes
 - Microservices Architecture
 
 ---
