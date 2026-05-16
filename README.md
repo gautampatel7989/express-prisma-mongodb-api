@@ -6,14 +6,14 @@ Production-ready Ecommerce Backend API built using Node.js, Express.js, Prisma O
 
 ## Tech Stack
 
-* Node.js
-* Express.js
-* Prisma ORM
-* MongoDB
-* JWT Authentication
-* RBAC Authorization
-* Zod Validation
-* REST APIs
+- Node.js
+- Express.js
+- Prisma ORM
+- MongoDB
+- JWT Authentication
+- RBAC Authorization
+- Zod Validation
+- REST APIs
 
 ---
 
@@ -21,44 +21,44 @@ Production-ready Ecommerce Backend API built using Node.js, Express.js, Prisma O
 
 ## Authentication & Authorization
 
-* User Registration
-* User Login
-* JWT Authentication
-* Role Based Access Control (RBAC)
-* Protected Routes
-* Admin Only Routes
+- User Registration
+- User Login
+- JWT Authentication
+- Role Based Access Control (RBAC)
+- Protected Routes
+- Admin Only Routes
 
 ---
 
 ## Users Module
 
-* Get Current User
-* Admin Access Control
+- Get Current User
+- Admin Access Control
 
 ---
 
 ## Products Module
 
-* Create Product
-* Get All Products
-* Get Single Product
-* Update Product
-* Delete Product
-* Pagination
-* Search
-* Filtering
-* Sorting
+- Create Product
+- Get All Products
+- Get Single Product
+- Update Product
+- Delete Product
+- Pagination
+- Search
+- Filtering
+- Sorting
 
 ---
 
 ## Orders Module
 
-* Create Order
-* User Orders
-* Admin Orders
-* Order Status Update
-* Stock Management
-* Prisma Transactions
+- Create Order
+- User Orders
+- Admin Orders
+- Order Status Update
+- Stock Management
+- Prisma Transactions
 
 ---
 
@@ -105,7 +105,7 @@ MongoDB
 ## Clone Repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/gautampatel7989/express-prisma-mongodb-api.git
 ```
 
 ---
@@ -217,26 +217,26 @@ Authorization: Bearer YOUR_TOKEN
 
 # Security Features
 
-* Password Hashing using bcryptjs
-* JWT Authentication
-* Role Based Authorization
-* Global Error Handling
-* Request Validation
-* Rate Limiting
-* Secure Middleware
+- Password Hashing using bcryptjs
+- JWT Authentication
+- Role Based Authorization
+- Global Error Handling
+- Request Validation
+- Rate Limiting
+- Secure Middleware
 
 ---
 
 # Future Improvements
 
-* Refresh Tokens
-* Redis Caching
-* Docker Support
-* Swagger Documentation
-* AWS S3 Uploads
-* Unit Testing
-* CI/CD Pipeline
-* Microservices Architecture
+- Refresh Tokens
+- Redis Caching
+- Docker Support
+- Swagger Documentation
+- AWS S3 Uploads
+- Unit Testing
+- CI/CD Pipeline
+- Microservices Architecture
 
 ---
 
