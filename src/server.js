@@ -22,6 +22,9 @@ const limiter = rateLimit({
   message: "Too Many Request!",
 });
 
+/**
+ * Third Party Middlewares
+ */
 app.use(cors());
 app.use(helmet());
 app.use(cookieParser());
@@ -37,6 +40,12 @@ app.use("/health", (req, res) => {
   return res.status(200).json({
     status: true,
     message: "The Application is live!",
+  });
+});
+app.use("/test-api", (req, res) => {
+  return res.status(200).json({
+    status: true,
+    message: "Test API is working fine!",
   });
 });
 
